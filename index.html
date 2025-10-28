@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Survey</title>
 
+    <script>
+    document.getElementById("surveyForm").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+
+   
+    const name = document.getElementById("name").value.trim();
+    const age = document.getElementById("age").value;
+    const rating = document.getElementById("rating").value;
+    const comments = document.getElementById("comments").value.trim();
+
+   
+    if (!name || !age || !rating) {
+        alert("Please fill in all required fields.");
+        return;
+    }
+
+    document.getElementById("resName").textContent = name;
+    document.getElementById("resAge").textContent = age;
+    document.getElementById("resRating").textContent = rating;
+    document.getElementById("resComments").textContent = comments || "No comments";
+
+    document.getElementById("results").style.display = "block";
+
+    
+    this.reset();
+    </script>
+</head>
+
+<body>
+    <h1>Survey Interface</h1>
+    <form id="surveyForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+        <br>
+        <br>
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" min="10" max="100" required>
+        <br>
+        <br>
+    <label for="rating">How would you rate our service?</label>
+    <select id="rating" name="rating" required>
+        <option value="">--Select--</option>
+        <option value="Excellent">Excellent</option>
+        <option value="Good">Good</option>
+        <option value="Average">Average</option>
+        <option value="Poor">Poor</option>
+    </select>
+    <br>
+    <br>
+    <p>Which of the below is your favorite?</p>
+    <input type="radio" id="html" name="fav_language" value="HTML">
+    <label for="html">HTML</label><br>
+    <input type="radio" id="css" name="fav_language" value="CSS">
+    <label for="css">CSS</label><br>
+    <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+    <label for="javascript">JavaScript</label>
+    <br>
+    <br>
+    <label for="comments">Additional Comments:</label>
+    <br>
+    <textarea id="comments" name="comments" rows="4"></textarea>
+    <br>
+    <button type="submit">Submit</button>
+</form>
+
+<div id="results" style="display:none;">
+    <h3>Survey Response</h3>
+    <p><strong>Name:</strong> <span id="resName"></span></p>
+    <p><strong>Age:</strong> <span id="resAge"></span></p>
+    <p><strong>Rating:</strong> <span id="resRating"></span></p>
+    <p><strong>Comments:</strong> <span id="resComments"></span></p>
+</div>
+</body>
+</html>
