@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Survey</title>
-
+    <link rel="stylesheet" href="style.css"/>
     <script>
     document.getElementById("surveyForm").addEventListener("submit", function(event) {
     event.preventDefault(); 
@@ -35,6 +35,7 @@
 
 <body>
     <h1>Survey Interface</h1>
+    <p>This is a typical survey with all different types of answer methods and this website helps pracrice some of those types.</p>
     <form id="surveyForm">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required>
@@ -53,21 +54,29 @@
         <option value="Poor">Poor</option>
     </select>
     <br>
-    <br>
+    <div class="section">
     <p>Which of the below is your favorite?</p>
     <input type="radio" id="html" name="fav_language" value="HTML">
-    <label for="html">HTML</label><br>
+    <label for="html">HTML</label>
     <input type="radio" id="css" name="fav_language" value="CSS">
-    <label for="css">CSS</label><br>
+    <label for="css">CSS</label>
     <input type="radio" id="javascript" name="fav_language" value="JavaScript">
     <label for="javascript">JavaScript</label>
     <br>
-    <br>
+    
+    <p>Mode of transportation?</p>
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  <label for="vehicle1"> A bike</label><br>
+  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+  <label for="vehicle2"> A car</label><br>
+  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+  <label for="vehicle3"> A boat</label><br><br>
+  </div>
     <label for="comments">Additional Comments:</label>
     <br>
     <textarea id="comments" name="comments" rows="4"></textarea>
     <br>
-    <button type="submit">Submit</button>
+    <input type="submit" value="Submit">
 </form>
 
 <div id="results" style="display:none;">
